@@ -1,8 +1,9 @@
-//package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.simulator;
 
 import ro.academyplus.avaj.simulator.vehicles.AircraftFactory;
 import ro.academyplus.avaj.simulator.vehicles.Flyable;
 import ro.academyplus.avaj.simulator.WeatherTower;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,7 +11,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /*
 + Public
@@ -43,13 +43,13 @@ public class Simulator {
                     flyables.add(flyable);
                 }
 
-//                for (Flyable flyable : flyables) {
-//                    flyable.registerTower(weatherTower);
-//                }
-//
-//                for (int i = 1; i <= simulations; i++) {
-//                    weatherTower.changeWeather();
-//                }
+                for (Flyable flyable : flyables) {
+                    flyable.registerTower(weatherTower);
+                }
+
+                for (int i = 1; i <= simulations; i++) {
+                    weatherTower.changeWeather();
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("Couldn't find file " + args[0]);
@@ -58,9 +58,9 @@ public class Simulator {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Specify simulation file");
         }
-////         finally {
-////            Logger.getLogger().close();
-////        }
+//         finally {
+//            Logger.getLogger().close();
+//        }
         System.out.println("All good");
     }
 }

@@ -9,7 +9,7 @@ public class WeatherTower extends Tower {
         return "Weather";
     }
 
-    void changeWeather() {
+    public void changeWeather() {
 
     }
 
