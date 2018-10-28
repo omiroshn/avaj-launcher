@@ -1,7 +1,8 @@
-package ro.academyplus.avaj.simulator;
+//package ro.academyplus.avaj.simulator;
 
 import ro.academyplus.avaj.simulator.vehicles.AircraftFactory;
 import ro.academyplus.avaj.simulator.vehicles.Flyable;
+import ro.academyplus.avaj.simulator.WeatherTower;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -22,7 +23,8 @@ public class Simulator {
     private static WeatherTower weatherTower;
     private static List<Flyable> flyables = new ArrayList<>();
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        System.out.println(args[0]);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(args[0]));
             String line = reader.readLine();
@@ -56,9 +58,9 @@ public class Simulator {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Specify simulation file");
         }
-//         finally {
-//            Logger.getLogger().close();
-//        }
+////         finally {
+////            Logger.getLogger().close();
+////        }
         System.out.println("All good");
     }
 }
