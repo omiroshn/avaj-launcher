@@ -3,7 +3,7 @@
 
 ### How to launch:
 ```
-./compile.sh scenario.txt
+make
 ```
 
 ### Map (example) :
