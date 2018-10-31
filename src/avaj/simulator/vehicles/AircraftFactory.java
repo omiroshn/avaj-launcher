@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator.vehicles;
+package avaj.simulator.vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
+import avaj.weather.Coordinates;
 
 public class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height)

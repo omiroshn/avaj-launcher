@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator;
+package avaj.simulator;
 
-import ro.academyplus.avaj.simulator.vehicles.Flyable;
+import avaj.simulator.vehicles.Flyable;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package ro.academyplus.avaj.weather;
+package avaj.weather;
 
 public class WeatherProvider {
     private WeatherProvider weatherProvider;

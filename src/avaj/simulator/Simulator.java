@@ -1,9 +1,8 @@
-package ro.academyplus.avaj.simulator;
+package avaj.simulator;
 
-import ro.academyplus.avaj.simulator.vehicles.AircraftFactory;
-import ro.academyplus.avaj.simulator.vehicles.Flyable;
-import ro.academyplus.avaj.simulator.WeatherTower;
-
+import avaj.simulator.vehicles.AircraftFactory;
+import avaj.simulator.vehicles.Flyable;
+import avaj.simulator.WeatherTower;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,13 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-/*
-+ Public
-# Protected
-- Private
-~ Package
- */
 
 public class Simulator {
     private static WeatherTower weatherTower;
@@ -31,15 +23,18 @@ public class Simulator {
             if (line != null) {
                 weatherTower = new WeatherTower();
                 int simulations = Integer.parseInt(line.split(" ")[0]);
-                if (simulations < 0) {
+                if (simulations <= 0) {
                     System.out.println("Invalid simulations count " + simulations);
                     System.exit(1);
                 }
                 while ((line = reader.readLine()) != null) {
-                    Flyable flyable = AircraftFactory.newAircraft(line.split(" ")[0], line.split(" ")[1],
-                            Integer.parseInt(line.split(" ")[2]),
-                            Integer.parseInt(line.split(" ")[3]),
-                            Integer.parseInt(line.split(" ")[4]));
+                    String[] newLine = line.split(" ");
+                    Flyable flyable = AircraftFactory.newAircraft(
+                            newLine[0],
+                            newLine[1],
+                            Integer.parseInt(newLine[2]),
+                            Integer.parseInt(newLine[3]),
+                            Integer.parseInt(newLine[4]));
                     flyables.add(flyable);
                 }
 

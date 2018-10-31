@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator.vehicles;
+package avaj.simulator.vehicles;
 
-import ro.academyplus.avaj.simulator.WeatherTower;
+import avaj.simulator.WeatherTower;
 
 public interface Flyable {
     public void updateConditions();

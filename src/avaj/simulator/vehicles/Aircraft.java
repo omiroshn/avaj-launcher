@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator.vehicles;
+package avaj.simulator.vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
+import avaj.weather.Coordinates;
 
 public class Aircraft {
 
