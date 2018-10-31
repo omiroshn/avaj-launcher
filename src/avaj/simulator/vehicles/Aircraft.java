@@ -4,22 +4,34 @@ import avaj.weather.Coordinates;
 
 public class Aircraft {
 
-    protected long id;
+    protected int id;
+    protected String type;
     protected String name;
     protected Coordinates coordinates;
 
-    private long idCounter;
+    private static int counterId = 0;
 
-    public Aircraft() {}
-
-    protected Aircraft(String name, Coordinates coordinates) {
+    protected Aircraft(String type, String name, Coordinates coordinates) {
+        this.id = nextId();
+        this.type = type;
         this.name = name;
         this.coordinates = coordinates;
     }
 
-    private long nextId() {
+    private int nextId() {
+        return ++counterId;
+    }
 
-        return this.id;
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
     }
 
 }

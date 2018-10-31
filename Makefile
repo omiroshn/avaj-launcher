@@ -7,4 +7,5 @@ clean:
 	rm -rf avaj
 	rm -rf out
 	rm -rf sources.txt
+	rm -rf simulation.txt
 	find . -depth -name "*.class" -delete

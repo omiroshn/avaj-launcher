@@ -2,4 +2,4 @@
 *.class
 ro
 out
-sources.txt
+*.txt
