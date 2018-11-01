@@ -11,8 +11,8 @@ public class Baloon extends Aircraft implements Flyable {
     }
 
     @Override
-    public void updateConditions() {
-
+    public void updateConditions(Logger file) {
+        file.writeToFile();
     }
 
     @Override
@@ -21,3 +21,4 @@ public class Baloon extends Aircraft implements Flyable {
         file.writeToFile("Tower says: " + this.getType() + "#" + this.getName() + "(" + this.getId() + ") registered to weather tower.\n");
     }
 }
+    
