@@ -1,6 +1,5 @@
 package avaj.simulator;
 
-import avaj.exceptions.ParseFileException;
 import avaj.simulator.vehicles.Flyable;
 import avaj.weather.Coordinates;
 import avaj.weather.WeatherProvider;
@@ -11,7 +10,7 @@ public class WeatherTower extends Tower {
         return WeatherProvider.getProvider().getCurrentWeather(coordinates);
     }
 
-    public void changeWeather() throws ParseFileException {
+    public void changeWeather() {
         conditionsChanged();
     }
 
@@ -26,7 +25,7 @@ public class WeatherTower extends Tower {
     }
 
     @Override
-    protected void conditionsChanged() throws ParseFileException {
+    protected void conditionsChanged() {
         super.conditionsChanged();
     }
 }

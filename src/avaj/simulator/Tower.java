@@ -1,6 +1,5 @@
 package avaj.simulator;
 
-import avaj.exceptions.ParseFileException;
 import avaj.simulator.vehicles.Flyable;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public class Tower {
         arrayFlyable.remove(flyable);
     }
 
-    protected void conditionsChanged() throws ParseFileException {
+    protected void conditionsChanged() {
         for (Flyable observer : arrayFlyable) {
             observer.updateConditions();
         }

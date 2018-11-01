@@ -1,6 +1,5 @@
 package avaj.simulator.vehicles;
 
-import avaj.exceptions.ParseFileException;
 import avaj.simulator.Logger;
 import avaj.simulator.WeatherTower;
 import avaj.weather.Coordinates;
@@ -24,7 +23,7 @@ public class Aircraft {
         this.coordinates = coordinates;
     }
 
-    public void update(int[][] coords, String weather, String[] msg) throws ParseFileException {
+    public void update(int[][] coords, String weather, String[] msg) {
         int weatherState = 0;
         switch (weather) {
             case "SUN":

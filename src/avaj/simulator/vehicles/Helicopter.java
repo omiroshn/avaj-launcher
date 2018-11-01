@@ -1,6 +1,5 @@
 package avaj.simulator.vehicles;
 
-import avaj.exceptions.ParseFileException;
 import avaj.simulator.Logger;
 import avaj.simulator.WeatherTower;
 import avaj.weather.Coordinates;
@@ -12,7 +11,7 @@ public class Helicopter extends Aircraft implements Flyable {
     }
 
     @Override
-    public void updateConditions() throws ParseFileException {
+    public void updateConditions() {
         String weather = weatherTower.getWeather(this.coordinates);
         int[][] coords = {{0,10,2},{0,5,0},{0,1,0},{0,0,-12}};
         String[] msg = {"Let's enjoy the good weather and take some pics.", "It's raining. Better watch out for lightings.", "It's foggy.", "OMG! Winter is coming!"};

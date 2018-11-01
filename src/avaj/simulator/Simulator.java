@@ -33,6 +33,12 @@ public class Simulator {
                     String[] newLine = line.split(" ");
                     if (newLine[2].isEmpty() || newLine[3].isEmpty() || newLine[4].isEmpty())
                         throw new ParseFileException("Params are empty.");
+//                    if (Integer.parseInt(newLine[2]) < 0)
+//                        throw new ParseFileException("Longitude is below 0.");
+//                    if (Integer.parseInt(newLine[3]) < 0)
+//                        throw new ParseFileException("Latitude is below 0.");
+//                    if (Integer.parseInt(newLine[4]) < 0)
+//                        throw new ParseFileException("Height is below 0.");
                     Flyable flyable = AircraftFactory.newAircraft(
                             newLine[0],
                             newLine[1],
