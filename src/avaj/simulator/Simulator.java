@@ -1,5 +1,6 @@
 package avaj.simulator;
 
+import avaj.exceptions.MD5_Exception;
 import avaj.simulator.vehicles.AircraftFactory;
 import avaj.simulator.vehicles.Flyable;
 import avaj.exceptions.ParseFileException;
@@ -8,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,9 +17,16 @@ import java.util.Objects;
 public class Simulator {
     private static List<Flyable> flyables = new ArrayList<>();
     private static Logger file = new Logger("simulation.txt");
+    private static MD5_Parser myMd5 = new MD5_Parser();
 
     public static void main(String[] args) {
         try {
+            if (args[0].isEmpty())
+                throw new FileNotFoundException("File not found");
+            if (args.length > 1) {
+                myMd5.loadFile(args[0]);
+                myMd5.checkString(args[1].toLowerCase());
+            }
             BufferedReader reader = new BufferedReader(new FileReader(args[0]));
             String line = reader.readLine();
             if (line != null) {
@@ -64,17 +73,18 @@ public class Simulator {
         } catch (IOException e) {
             System.out.println("There was an error while reading the file " + args[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
-            if (Objects.equals(e.getMessage(), "1"))
-                System.out.println("ArrayIndexOutOfBoundsException: Empty Line");
-            else if (Objects.equals(e.getMessage(), "4"))
+            if (Objects.equals(e.getMessage(), "4"))
                 System.out.println("ArrayIndexOutOfBoundsException: Empty Parameter");
             else
-                System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+                System.out.println("ArrayIndexOutOfBoundsException: Empty Line");
         } catch (ParseFileException e) {
             System.out.println("ParseFileException: " + e.getMessage());
         } catch (NumberFormatException e) {
             System.out.println("NumberFormatException: " + e.getMessage());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (MD5_Exception e) {
+            System.out.println("MD5_Exception: " + e.getMessage());
         }
-        System.out.println("All good");
     }
 }
