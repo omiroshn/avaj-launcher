@@ -2,11 +2,12 @@ package avaj.simulator;
 
 import avaj.simulator.vehicles.Flyable;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Tower {
 
-    private ArrayList<Flyable> arrayFlyable = new ArrayList<>();
+    private List<Flyable> arrayFlyable = new CopyOnWriteArrayList<>();
 
     public void register(Flyable flyable) {
         arrayFlyable.add(flyable);

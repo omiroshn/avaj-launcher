@@ -14,8 +14,12 @@ public class Helicopter extends Aircraft implements Flyable {
     public void updateConditions() {
         String weather = weatherTower.getWeather(this.coordinates);
         int[][] coords = {{0,10,2},{0,5,0},{0,1,0},{0,0,-12}};
-        String[] msg = {"Let's enjoy the good weather and take some pics.", "It's raining. Better watch out for lightings.", "It's foggy.", "OMG! Winter is coming!"};
-        super.update(coords, weather, msg);
+        String[] msg = {"Let's enjoy the good weather and take some pics.\n", "It's raining. Better watch out for lightings.\n", "It's foggy.\n", "OMG! Winter is coming!\n"};
+        int update = super.update(coords, weather, msg);
+        if (update == 0) {
+            this.weatherTower.unregister(this);
+            this.logger.writeToFile("Tower says: " + this.getType() + "#" + this.getName() + "(" + this.getId() + ") unregistered from weather tower.\n");
+        }
     }
 
     @Override

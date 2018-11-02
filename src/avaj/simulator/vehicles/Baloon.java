@@ -14,8 +14,12 @@ public class Baloon extends Aircraft implements Flyable {
     public void updateConditions() {
         String weather = weatherTower.getWeather(this.coordinates);
         int[][] coords = {{0,2,4},{0,0,-5},{0,0,-3},{0,0,-15}};
-        String[] msg = {"Let's enjoy the good weather and take some pics.", "It's raining. Better watch out for lightings.", "It's foggy.", "OMG! Winter is coming!"};
-        super.update(coords, weather, msg);
+        String[] msg = {"Let's enjoy the good weather and take some pics.\n", "It's raining. Better watch out for lightings.\n", "It's foggy.\n", "OMG! Winter is coming!\n"};
+        int update = super.update(coords, weather, msg);
+        if (update == 0) {
+            this.weatherTower.unregister(this);
+            this.logger.writeToFile("Tower says: " + this.getType() + "#" + this.getName() + "(" + this.getId() + ") unregistered from weather tower.\n");
+        }
     }
 
     @Override
@@ -23,7 +27,7 @@ public class Baloon extends Aircraft implements Flyable {
         this.logger = file;
         this.weatherTower = WeatherTower;
         this.weatherTower.register(this);
-        file.writeToFile("Tower says: " + this.getType() + "#" + this.getName() + "(" + this.getId() + ") registered to weather tower.\n");
+        this.logger.writeToFile("Tower says: " + this.getType() + "#" + this.getName() + "(" + this.getId() + ") registered to weather tower.\n");
     }
 }
     

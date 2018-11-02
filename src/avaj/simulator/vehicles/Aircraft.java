@@ -23,7 +23,7 @@ public class Aircraft {
         this.coordinates = coordinates;
     }
 
-    public void update(int[][] coords, String weather, String[] msg) {
+    public int update(int[][] coords, String weather, String[] msg) {
         int weatherState = 0;
         switch (weather) {
             case "SUN":
@@ -39,11 +39,16 @@ public class Aircraft {
                 weatherState = 3;
                 break;
         }
+        logger.writeToFile(this.type + "#" + this.name + "(" + this.id + "): " + msg[weatherState]);
+        if (this.coordinates.getHeight() + coords[weatherState][2] <= 0) {
+            logger.writeToFile(this.type + "#" + this.name + "(" + this.id + ") landing.\n");
+            return 0;
+        }
         this.coordinates = new Coordinates(
                 this.coordinates.getLatitude() + coords[weatherState][0],
                 this.coordinates.getLatitude() + coords[weatherState][1],
                 this.coordinates.getHeight() + coords[weatherState][2]);
-        logger.writeToFile(this.type + "#" + this.name + "(" + this.id + "): " + msg[weatherState]);
+        return 1;
     }
 
     private int nextId() {
