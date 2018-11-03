@@ -32,11 +32,7 @@ Helicopter H4 223 23 54
 - [x] MD5 encryption
 
 ## P.S.:
-I'm not an expert, but MD5 does not encode things. it takes an input (a string or a file) and generates a 128 bit string, called the digest. it doesn't matter if you input 1 character or a million, the output is 128 bits. 
-
-This is used to verify file integrity. I say "i am sending you this file. Here is the digest." When you get the file, you can run it through MD5 and then compare the digest you get to the one i sent. If they are the same, you can be pretty sure the file is unchanged. If the digest are different, then something has been changed in the source file, so you know the data is compromised. 
-
-There is no way to take the digest and re-generate the original source. That is not what it is designed to do.
+<img align="center"  src="https://github.com/omiroshn/avaj-launcher/blob/master/ScreenShot.png" width="100%" />
 
 # Example of output :
 ```
